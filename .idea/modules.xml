@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jabvee.iml" filepath="$PROJECT_DIR$/.idea/modules/jabvee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jabvee_main.iml" filepath="$PROJECT_DIR$/.idea/modules/jabvee_main.iml" group="jabvee" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jabvee_test.iml" filepath="$PROJECT_DIR$/.idea/modules/jabvee_test.iml" group="jabvee" />
+    </modules>
+  </component>
+</project>
