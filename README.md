@@ -6,7 +6,7 @@ A library that extends the [Java Bean Validation](http://beanvalidation.org) wit
 
 *Note:* 
 
-*All the examples are using project's lombok annotations like `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`, etc.*
+*All the examples are using [project's lombok](https://projectlombok.org) annotations like `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`, etc.*
 *Those annotations are used make the examples more compact, but their use is optional.*
 
 ### `@AllBlank`
