@@ -18,7 +18,7 @@ public class StartsWithValidator implements ConstraintValidator<StartsWith, Stri
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        String[] prefixes = annotation.prefixes();
+        String[] prefixes = annotation.value();
 
         BiFunction<String, String, Boolean> fct =
                 !annotation.ignoreCase() ?

@@ -18,7 +18,7 @@ public class EndsWithValidator implements ConstraintValidator<EndsWith, String> 
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        String[] prefixes = annotation.suffixes();
+        String[] prefixes = annotation.value();
 
         BiFunction<String, String, Boolean> fct =
                 !annotation.ignoreCase() ?

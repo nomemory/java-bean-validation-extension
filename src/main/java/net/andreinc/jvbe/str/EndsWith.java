@@ -13,11 +13,12 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
 @Constraint(validatedBy = EndsWithValidator.class)
-@Target({ METHOD, FIELD, ANNOTATION_TYPE })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 public @interface EndsWith {
     String message() default "{string.endswith}";
-    String[] suffixes();
+
+    String[] value();
     boolean ignoreCase() default false;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

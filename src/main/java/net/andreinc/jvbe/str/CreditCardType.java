@@ -1,6 +1,8 @@
 package net.andreinc.jvbe.str;
 
-;import org.apache.commons.validator.routines.CreditCardValidator;
+import org.apache.commons.validator.routines.CreditCardValidator;
+
+;
 
 public enum CreditCardType {
 
@@ -17,8 +19,7 @@ public enum CreditCardType {
             CreditCardValidator.MASTERCARD +
             CreditCardValidator.VISA +
             CreditCardValidator.VPAY
-    ),
-    GENERIC_CHECK(CreditCardValidator.NONE);
+    );
 
     private Long internalValue;
 
