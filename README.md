@@ -100,7 +100,7 @@ Checks if the String endsWith a list of given suffixes.
 @AllArgsConstructor
 @NoArgsConstructor
 class SomeStrings {
-    private List<@EndsWith(value = {"1", "2"}) String> someStrings;
+    private List<@EndsWith({"1", "2"}) String> someStrings;
 }
 ```
 
