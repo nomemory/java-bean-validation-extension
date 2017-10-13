@@ -15,7 +15,7 @@ public class SimpleValidation {
         Set<ConstraintViolation<T>> validatorSet = validator.validate(object);
 
         validatorSet.forEach(cv -> {
-            throw new BeanValidationException(cv.getMessage());
+            throw new BeanValidationException(cv.getPropertyPath() + " // " + cv.getMessage());
         });
     }
 }
