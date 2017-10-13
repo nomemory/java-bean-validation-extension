@@ -4,6 +4,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class TimeAction {
+
     public static <Ret, Input> TimeActionResponse<Ret> recordTimeAndDo(Function<Input, Ret> function, Input val) {
         long t1 = System.currentTimeMillis();
         Ret result = function.apply(val);
@@ -17,4 +18,5 @@ public class TimeAction {
         long t2 = System.currentTimeMillis() - t1;
         return new TimeActionResponse<>(result, t2);
     }
+
 }

@@ -3,7 +3,7 @@ package examples;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.andreinc.jvbe.str.EndsWith;
+import net.andreinc.jvbe.annotations.str.EndsWith;
 
 import java.util.List;
 
