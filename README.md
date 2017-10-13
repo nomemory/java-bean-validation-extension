@@ -1,6 +1,12 @@
 # java-bean-validation-extension
 
-A library that extends the [Java Bean Validation](http://beanvalidation.org) with additional @Annotations.
+A library that extends the [Java Bean Validation](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation.
+
+For the moment the only way to use the library (which is an draft stage) is to build it from the source. 
+
+At runtime you will need an implementation for [JSR-380](https://www.jcp.org/en/jsr/detail?id=380) in order to work. At this moment there is only one implementation: [hibernate-validator](http://hibernate.org/validator/). You might also need an additional .jar (`group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'`).
+
+Check out the `build.gradle` to better understand the requirements.
 
 ## Additional supported annotations
 
