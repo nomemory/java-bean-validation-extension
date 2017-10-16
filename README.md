@@ -15,27 +15,6 @@ Check out the `build.gradle` to better understand the requirements.
 *All the examples are using [project's lombok](https://projectlombok.org) annotations like `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`, etc.*
 *Those annotations are used make the examples more compact, but their use is optional.*
 
-### `@AllBlank`
-
-Checks if the String is empty (""), null or whitespace only.
-
-#### Example
-
-```java
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-class Test {
-
-    @AllBlank
-    String allBlank = "";
-
-    @AllBlank /* A constraint validation will be raised */
-    String notAllBlank = " 1";
-
-}
-```
-
 ### `@Alpha`
 
 Check if the String contains only unicode letters.
