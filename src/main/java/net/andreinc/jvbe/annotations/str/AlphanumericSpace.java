@@ -13,7 +13,8 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * Checks if the String contains only unicode letters, digits or space (' ')
+ * Checks if the String contains only unicode letters, digits or space (' ').
+ * Compared to the @Alphanumeric annotation, empty string is also accepted.
  */
 @Documented
 @Constraint(validatedBy = AlphanumericSpaceValidator.class)

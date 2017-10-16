@@ -12,26 +12,20 @@ repositories {
 dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.16.18'
+    compileOnly group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
+    compileOnly group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-alpha2'
-
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
-    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-alpha2'
-
-    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
-    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
-
     // https://mvnrepository.com/artifact/commons-validator/commons-validator
     compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
-
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
 
-    // https://mvnrepository.com/artifact/org.glassfish/javax.el
-    compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
-
     // Test libraries
+    testCompile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
+    testCompile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
     testCompile 'org.projectlombok:lombok:1.16.18'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-alpha2'
 }
