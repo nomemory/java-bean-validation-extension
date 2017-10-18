@@ -1,11 +1,11 @@
 package net.andreinc.jvbe.annotations.misc.validators;
 
-import net.andreinc.jvbe.annotations.misc.OneOfStrs;
+import net.andreinc.jvbe.annotations.misc.OneOfStrings;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintValidatorContext;
 
-public class OneOfStrsValidator extends OneOfValidator<OneOfStrs, String> {
+public class OneOfStringsValidator extends OneOfValidator<OneOfStrings, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {

@@ -2,7 +2,7 @@ package net.andreinc.jvbe.test;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import net.andreinc.jvbe.annotations.misc.OneOfStrs;
+import net.andreinc.jvbe.annotations.misc.OneOfStrings;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-public class OneOfStrsTest {
+public class OneOfStringsTest {
     private Validator validator =
             Validation.buildDefaultValidatorFactory().getValidator();
 
@@ -72,7 +72,7 @@ public class OneOfStrsTest {
 @Data
 @AllArgsConstructor
 @Valid class OneOfStringsBeanFields {
-    @OneOfStrs({"A", "B"})
+    @OneOfStrings({"A", "B"})
     private String aString;
 }
 
@@ -82,7 +82,7 @@ class OneOfStringsBeanMethods {
 
     private String aString;
 
-    @OneOfStrs({"A", "B"})
+    @OneOfStrings({"A", "B"})
     private String getAString() {
         return aString;
     }
@@ -91,5 +91,5 @@ class OneOfStringsBeanMethods {
 @Data
 @AllArgsConstructor
 class OneOfStringsBeanType {
-    private List<@OneOfStrs({"A", "B"}) String> strs;
+    private List<@OneOfStrings({"A", "B"}) String> strs;
 }

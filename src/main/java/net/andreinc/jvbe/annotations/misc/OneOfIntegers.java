@@ -1,6 +1,6 @@
 package net.andreinc.jvbe.annotations.misc;
 
-import net.andreinc.jvbe.annotations.misc.validators.OneOfIntsValidator;
+import net.andreinc.jvbe.annotations.misc.validators.OneOfIntegersValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -13,9 +13,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
 @Retention(RUNTIME)
-@Constraint(validatedBy = OneOfIntsValidator.class)
+@Constraint(validatedBy = OneOfIntegersValidator.class)
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
-public @interface OneOfInts {
+public @interface OneOfIntegers {
     String message() default "{misc.oneof.ints}";
 
     int[] value() default {};

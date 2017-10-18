@@ -1,13 +1,13 @@
 package net.andreinc.jvbe.annotations.misc.validators;
 
 
-import net.andreinc.jvbe.annotations.misc.OneOfInts;
+import net.andreinc.jvbe.annotations.misc.OneOfIntegers;
 import org.apache.commons.lang3.ArrayUtils;
 
 import javax.validation.ConstraintValidatorContext;
 import java.util.Objects;
 
-public class OneOfIntsValidator extends OneOfValidator<OneOfInts, Integer> {
+public class OneOfIntegersValidator extends OneOfValidator<OneOfIntegers, Integer> {
 
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
