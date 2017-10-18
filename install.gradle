@@ -1,6 +1,6 @@
 apply plugin: 'maven'
 
-group = 'net.andreinc.mockneat'
+group = 'net.andreinc.jvbe'
 
 install {
     repositories.mavenInstaller {
