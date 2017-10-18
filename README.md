@@ -21,6 +21,7 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
+| [`@StartsWith`] | `String` | Checks if the String starts with the specified prefix(es). |
 | ...more | ...more | ...more to be documented. |
 
 *Note:* 
@@ -366,7 +367,30 @@ Test if the annotated `String` is present in the supplied array.
 
 ### `@StartsWith`
 
-Test if a given String starts with a one the elements of a given list of prefixes.
+Checks if a String starts with the specified prefix(es).
+
+The annotation supports a second property `ignoreCase` that by default is `false`.
+
+Behavior (`ignoreCase==false`):
+
+| Value | Prefix | Result |
+| --- | --- | --- |
+| `null` | "abc" | :x: Fails |
+| `"abcdef"` | `"abc"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `"abc"` | :x: Fails |
+| `"ABCDEF"` | `""` | :white_check_mark: Passes |
+
+Behavior (`ignoreCase==true`):
+
+| Value | Prefix | Result |
+| --- | --- | --- |
+| `null` | "abc" | :x: Fails |
+| `"abcdef"` | `"abc"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `"abc"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `""` | :white_check_mark: Passes |
+
+
+#### Example
 
 ```java
 @Data
