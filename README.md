@@ -195,6 +195,26 @@ class Horses {
 
 Test if a given String can be transformed into a number.
 
+### `@OneOfChars`
+
+Test if the annotated `Character` is present in the supplied array. 
+
+### `@OneOfDoubles`
+
+Test if the annotated `Double` is present in the supplied array.
+
+### `@OneOfInts`
+
+Test if the annotated `Integer` is present in the supplied array.
+
+### `@OneOfLongs`
+
+Test if the annotated `Long` is present in the supplied array.
+
+### `@OneOfStrs`
+
+Test if the annotated `String` is present in the supplied array.
+
 ### `@StartsWith`
 
 Test if a given String starts with a one the elements of a given list of prefixes.
