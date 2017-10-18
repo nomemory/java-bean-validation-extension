@@ -11,6 +11,9 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters. |
 | [`@Alphanumeric`](#alphanumeric) | `String` | Checks if the String contains unly unicode letters or digits |
 | [`@AlphanumericSpace`](#alphanumericspace) | `String` | Checks if the String contains only unicode letters, digits, empty strings or spaces. |
+| [`@AlphaSpace`](#alphaspace) | `String` | Checks if the String contains only Unicode letters and space `" "`. |
+| [`@AsciiPrintable`](#asciiprintable) | `String` | Checks if the String contains only ASCII printable characters. |
+| [`@Blank`](#blank) | `String` | Checks if the String is empty `""`, null or whitespace(s) `"  "` only. |
 
 *Note:* 
 
@@ -19,7 +22,7 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 
 ### `@Alpha`
 
-Check if the String contains only unicode letters.
+Check if the String contains only unicode letters. 
 
 Behavior:
 
@@ -79,15 +82,49 @@ Behavior:
 
 ### `@AlphaSpace`
 
-Checks if the String contains only unicode letters or spaces.
+Checks if the String contains only Unicode letters and space (" ").
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :white_check_mark: Passes |
+| `" "` | :white_check_mark: Passes |
+| `"abc"` | :white_check_mark: Passes |
+| `"ab c"` | :white_check_mark: Passes |
+| `"ab1c"` | :x: Fails |
+| `"ab-c"` | :x: Fails |
  
 ### `@AsciiPrintable`
  
-Checks if the String is printable.
+Checks if the String is printable (ASCII printable characters).
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :white_check_mark: Passes |
+| `" "` | :white_check_mark: Passes |
+| `"\u0020"` | :white_check_mark: Passes |
+| `"\u007e"` | :x: Fails |
+| `"G\u00fclc\u00fc"` | :x: Fails |
 
 ### `@Blank`
 
-Checks if the String is empty or NULL.
+Checks if the String is empty `""`, null or whitespace(s) `"  "` only.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :white_check_mark: Passes |
+| `""` | :white_check_mark: Passes |
+| `" "` | :white_check_mark: Passes |
+| `"abc"` | :x: Fails |
+| `" abc "` | :x: Fails |
+
 
 ### `@CC`
 
