@@ -2,7 +2,7 @@
 
 *JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation, and should be used togheter with one (eg.: [hibernate-validator](http://hibernate.org/validator/)).
 
-Check out the `build.gradle` to better understand the requirements.
+Check out the `build.gradle` to better understand the requirements. Integrating the repo with Maven Central and JCenter is still an work in progress. 
 
 ## Addiotnal supported annotations
 
