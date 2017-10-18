@@ -10,6 +10,7 @@ Check out the `build.gradle` to better understand the requirements.
 | --- | --- | --- |
 | [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters. |
 | [`@Alphanumeric`](#alphanumeric) | `String` | Checks if the String contains unly unicode letters or digits |
+| [`@AlphanumericSpace`](#alphanumericspace) | `String` | Checks if the String contains only unicode letters, digits, empty strings or spaces. |
 
 *Note:* 
 
@@ -24,12 +25,12 @@ Behavior:
 
 | Value | Result |
 | --- | ---
-| `null` | Fails |
-| `""` | Fails |
-| `" "` | Fails |
-| `"abc"` | Passes |
-| `"ab2c"` | Fails |
-| `"ab-c"` | Fails |
+| `null` | :x: Fails |
+| `""` | :x: Fails |
+| `" "` | :x: Fails |
+| `"abc"` | :white_check_mark: Passes |
+| `"ab2c"` | :x: Fails |
+| `"ab-c"` | :x: Fails |
 
 
 ### Example
@@ -52,17 +53,29 @@ Behavior:
 
 | Value | Result |
 | --- | --- |
-| `null` | Fails |
-| `""` | Fails |
-| `" "` | Fails |
-| `"abc"` | Passes |
-| `"ab c"` | Fails |
-| `"ab2c"` | Passes |
-| `"ab-c"` | Fails |
+| `null` | :x: Fails |
+| `""` | :x: Fails |
+| `" "` | :x: Fails |
+| `"abc"` | :white_check_mark: Passes |
+| `"ab c"` | :x: Fails |
+| `"ab2c"` | :white_check_mark: Passes |
+| `"ab-c"` | :x: Fails |
 
 ### `@AlphanumericSpace`
 
-Checks if the String contains only unicode letters, digits or spaces.
+Checks if the String contains only unicode letters, digits, empty strings or spaces.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :white_check_mark: Passes |
+| `" "` | :white_check_mark: Passes |
+| `"abc"` | :white_check_mark: Passes |
+| `"ab c"` | :white_check_mark: Passes |
+| `"ab2c"` | :white_check_mark: Passes |
+| `"ab-c"` | :x: Fails |
 
 ### `@AlphaSpace`
 
