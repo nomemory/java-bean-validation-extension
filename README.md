@@ -332,7 +332,17 @@ Behavior:
 
 ### `@Parseable`
 
-Check if the String can be parsed to a number.
+Check if the String can be parsed to a number. The annotations accepts the type of parsing you want to perform as an input parameter.
+
+For example if you want to parse it `Integer`, @Parseable(TO_INT) should be used.
+
+All the possible parsing strategies accepted are described in the enum `ParseableType`. It currently supports:
+
+- `TO_SHORT` 
+- `TO_INT`
+- `TO_LONG`
+- `TO_FLOAT`
+- `TO_DOUBLE`
 
 ### `@OneOfChars`
 
