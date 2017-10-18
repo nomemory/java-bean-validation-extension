@@ -21,6 +21,7 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@Parseable`](#parseable) | `String` | Check if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
+| ...more | ...more | ...more to be documented. |
 
 *Note:* 
 
