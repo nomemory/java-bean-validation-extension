@@ -7,7 +7,7 @@ Check out the `build.gradle` to better understand the requirements.
 ## Addiotnal supported annotations
 
 | @Annotation | Supported Data Types | Description |
-| --- | --- |
+| --- | --- | --- |
 | [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters | 
 
 *Note:* 
@@ -19,6 +19,16 @@ Check out the `build.gradle` to better understand the requirements.
 
 Check if the String contains only unicode letters.
 
+Example:
+
+| Value | Result |
+| --- | ---
+| `null` | Fails |
+| `""` (Empty String) | Fails |
+| `" "` (Space) | Fails |
+| `"abc"` | Passes |
+| `"ab2c"` | Fails |
+| `"ab-c"` | Fails |
 
 
 ### Example
