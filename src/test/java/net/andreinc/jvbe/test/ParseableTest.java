@@ -45,8 +45,6 @@ public class ParseableTest {
         Set<ConstraintViolation<ParseableBeanFields>> violations =
                 validator.validate(startsWithBeanFields);
 
-        violations.forEach(System.out::println);
-
         Assert.assertEquals(5, violations.size());
     }
 }

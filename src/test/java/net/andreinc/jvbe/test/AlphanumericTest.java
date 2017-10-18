@@ -44,8 +44,6 @@ public class AlphanumericTest {
         Set<ConstraintViolation<AlphanumericBeanMethods>> violations =
                 validator.validate(alphanumericBeanMethods);
 
-        violations.forEach(System.out::println);
-
         Assert.assertEquals(3, violations.size());
     }
 }
