@@ -1,14 +1,14 @@
 # java-bean-validation-extension (JVBE)
 
-*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation.
-
-For the moment the only way to use the library (which is an draft stage) is to build it from the source. 
-
-At runtime you will need an implementation for [JSR-380](https://www.jcp.org/en/jsr/detail?id=380) in order to work. At this moment there is only one implementation: [hibernate-validator](http://hibernate.org/validator/). You might also need an additional .jar (`group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'`).
+*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation, and should be used togheter with one (eg.: [hibernate-validator](http://hibernate.org/validator/)).
 
 Check out the `build.gradle` to better understand the requirements.
 
-## Additional supported annotations
+## Addiotnal supported annotations
+
+| @Annotation | Supported Data Types | Description |
+| --- | --- |
+| [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters | 
 
 *Note:* 
 
@@ -18,6 +18,8 @@ Check out the `build.gradle` to better understand the requirements.
 ### `@Alpha`
 
 Check if the String contains only unicode letters.
+
+
 
 ### Example
 ```java 
