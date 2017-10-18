@@ -19,7 +19,8 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
-| [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*.
+| [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
+| [`@Parseable`](#parseable) | `String` | Check if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
 
 *Note:* 
 
