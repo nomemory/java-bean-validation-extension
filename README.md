@@ -15,7 +15,11 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@AsciiPrintable`](#asciiprintable) | `String` | Checks if the String contains only ASCII printable characters. |
 | [`@Blank`](#blank) | `String` | Checks if the String is empty `""`, null or whitespace(s) `"  "` only. |
 | [`@CC`](#cc) | `String` | Checks if the String is a valid credit card number. |
-| [`@EndsWith`](#endswith) | `String` | Check if the Strings ends with a specified suffix(es). |
+| [`@EndsWith`](#endswith) | `String` | Checks if the Strings ends with a specified suffix(es). |
+| [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
+| [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
+| [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
+| [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*.
 
 *Note:* 
 
@@ -160,7 +164,7 @@ Checks if the String `endsWith` a list of given suffix(es). If multiple suffixes
 
 The annotation supports a second property `ignoreCase` that by default is `false`.
 
-Behavior (ignoreCase=false):
+Behavior (`ignoreCase==false`):
 
 | Value | Suffix | Result |
 | --- | --- | --- |
@@ -169,7 +173,7 @@ Behavior (ignoreCase=false):
 | `"ABCDEF"` | `"def"` | :x: Fails |
 | `"ABCDEF"` | `""` | :white_check_mark: Passes |
 
-Behavior (ignoreCase=true)
+Behavior (`ignoreCase==true`)
 
 | Value | Suffix | Result |
 | --- | --- | --- |
@@ -231,9 +235,13 @@ System.out.println(validations.size());
 
 Checks if the given string is a valid IPv4 address.
 
+This is implemented using `InetAddressValidator.class` from [Apache Common Validator](https://commons.apache.org/proper/commons-validator/).
+
 ### `@IPv6`
 
 Checks if the given string is a valid IPv6 address.
+
+This is implemented using `InetAddressValidator.class` from [Apache Common Validator](https://commons.apache.org/proper/commons-validator/).
 
 ### `@JsAssert` 
 
@@ -267,13 +275,25 @@ The above code validates for `new Bean01("Abcde", "abc")`, but is not validating
 
 
 ### `@LowerCase`
- 
-Test if the given string contains only lower case characters.
+
+Checks if the String contains only lowercase letters.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :x: Fails |
+| `" "` | :x: Fails |
+| `"abc"` | :white_check_mark: Passes |
+| `"abC"` | :x: Fails |
+| `"ab c"` | :x: Fails |
+| `"ab1c"` | :x: Fails |
+| `"ab-c"` | :x: Fails |
 
 ### `@NotInstanceOf`
 
 Test if an object is not an instance of any of the supplied classes.
-
 
 #### Example
 
@@ -293,7 +313,20 @@ class Horses {
 
 ### `@Numeric`
 
-Test if a given String can be transformed into a number.
+Checks if a String contains only Unicode digits. A decimal point is not an unicode digit and thus, the validation fails.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :x: Fails |
+| `" "` | :x: Fails |
+| `"123"` |  :white_check_mark: Passes | 
+| `"\u0967\u0968\u0969"` | :white_check_mark: Passes |
+| `"12 3"` | :x: Fails |
+| `"12a3"` | :x: Fails |
+| `"12-3"` | :x: Fails |
 
 ### `@OneOfChars`
 
