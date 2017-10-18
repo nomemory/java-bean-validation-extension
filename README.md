@@ -6,7 +6,7 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 
 ## Addiotnal supported annotations
 
-| @Annotation | Supported Data Types | Description |
+| @Annotation | Supported Types | Description |
 | --- | --- | --- |
 | [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters. |
 | [`@Alphanumeric`](#alphanumeric) | `String` | Checks if the String contains unly unicode letters or digits |
@@ -14,6 +14,8 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@AlphaSpace`](#alphaspace) | `String` | Checks if the String contains only Unicode letters and space `" "`. |
 | [`@AsciiPrintable`](#asciiprintable) | `String` | Checks if the String contains only ASCII printable characters. |
 | [`@Blank`](#blank) | `String` | Checks if the String is empty `""`, null or whitespace(s) `"  "` only. |
+| [`@CC`](#cc) | `String` | Checks if the String is a valid credit card number. |
+| [`@EndsWith`](#endswith) | `String` | Check if the Strings ends with a specified suffix(es). |
 
 *Note:* 
 
@@ -128,8 +130,9 @@ Behavior:
 
 ### `@CC`
 
-Checks if the String is a valid credit card number. Supported types are: 
-- AMEX;
+Checks if the String is a valid credit card number. Supported types are defined in the `CreditCardType` enum: 
+
+- AMEX: 
 - DINERS;
 - DISCOVER;
 - MASTERCARD;
@@ -137,12 +140,14 @@ Checks if the String is a valid credit card number. Supported types are:
 - VPAY;
 - ALL.
 
+Multiple credit card types can be supplied to the `@CC` annotation. 
+
 #### Example
 
 ```java
 @Data
 class Account {
-    @CC({ AMEX, VISA })
+    @CC({ AMEX, VISA }) // AMEX or VISA
     private String ccNumber;
 }
 ```
@@ -151,7 +156,27 @@ Multiple credit card types can be used.
 
 ### `@EndsWith`
 
-Checks if the String endsWith a list of given suffixes.
+Checks if the String `endsWith` a list of given suffix(es). If multiple suffixes are supplied, the relationship between them is `OR`(eg.: endsWith(prefix1) OR endsWith(prefix2) OR ...).
+
+The annotation supports a second property `ignoreCase` that by default is `false`.
+
+Behavior (ignoreCase=false):
+
+| Value | Suffix | Result |
+| --- | --- | --- |
+| `null` | "abc" | :x: Fails |
+| `"abcdef"` | `"def"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `"def"` | :x: Fails |
+| `"ABCDEF"` | `""` | :white_check_mark: Passes |
+
+Behavior (ignoreCase=true)
+
+| Value | Suffix | Result |
+| --- | --- | --- |
+| `null` | "abc" | :x: Fails |
+| `"abcdef"` | `"def"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `"def"` | :white_check_mark: Passes |
+| `"ABCDEF"` | `""` | :white_check_mark: Passes |
 
 #### Example
 
