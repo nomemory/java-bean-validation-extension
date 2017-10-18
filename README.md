@@ -362,6 +362,7 @@ class {
     @OneOfChars({'a', 'b', 'c'})
     private Character aOrBOrC;
 }
+```
 
 ### `@OneOfDoubles`
 
