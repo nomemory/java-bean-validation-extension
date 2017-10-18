@@ -1,6 +1,6 @@
-# java-bean-validation-extension
+# java-bean-validation-extension (JVBE)
 
-A library that extends the [Java Bean Validation](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation.
+*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation.
 
 For the moment the only way to use the library (which is an draft stage) is to build it from the source. 
 
