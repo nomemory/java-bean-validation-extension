@@ -8,7 +8,8 @@ Check out the `build.gradle` to better understand the requirements.
 
 | @Annotation | Supported Data Types | Description |
 | --- | --- | --- |
-| [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters | 
+| [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters. |
+| [`@Alphanumeric`](#alphanumeric) | `String` | Checks if the String contains unly unicode letters or digits |
 
 *Note:* 
 
@@ -19,13 +20,13 @@ Check out the `build.gradle` to better understand the requirements.
 
 Check if the String contains only unicode letters.
 
-Example:
+Behavior:
 
 | Value | Result |
 | --- | ---
 | `null` | Fails |
-| `""` (Empty String) | Fails |
-| `" "` (Space) | Fails |
+| `""` | Fails |
+| `" "` | Fails |
 | `"abc"` | Passes |
 | `"ab2c"` | Fails |
 | `"ab-c"` | Fails |
@@ -46,6 +47,18 @@ class TestAlpha {
 ### `@Alphanumeric`
 
 Checks if the String contains only unicode letters or digits.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | Fails |
+| `""` | Fails |
+| `" "` | Fails |
+| `"abc"` | Passes |
+| `"ab c"` | Fails |
+| `"ab2c"` | Passes |
+| `"ab-c"` | Fails |
 
 ### `@AlphanumericSpace`
 
