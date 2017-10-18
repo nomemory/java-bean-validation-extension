@@ -330,6 +330,10 @@ Behavior:
 | `"12a3"` | :x: Fails |
 | `"12-3"` | :x: Fails |
 
+### `@Parseable`
+
+Check if the String can be parsed to a number.
+
 ### `@OneOfChars`
 
 Test if the annotated `Character` is present in the supplied array. 
