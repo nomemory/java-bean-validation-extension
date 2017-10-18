@@ -4,7 +4,7 @@
 
 Check out the `build.gradle` to better understand the requirements. Integrating the repo with Maven Central and JCenter is still an work in progress. 
 
-## Addiotnal supported annotations
+## Additional supported annotations
 
 | @Annotation | Supported Types | Description |
 | --- | --- | --- |
@@ -20,6 +20,8 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
+| [`@OneOfChars`](#oneofchars) | `Character` | Checks if the Character is contained in a given array (`char[]`) of values. |
+| [`@OneOfStrings`](#oneofstrings) | `String` | Checks if the String is contained in a given array (`String[]`) of values. |
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
 | [`@StartsWith`](#startswith) | `String` | Checks if the String starts with the specified prefix(es). |
 | [`@UpperCase`](#uppercase) | `String` | Checks if the String contains only uppercase letters. |
@@ -348,7 +350,18 @@ All the possible parsing strategies accepted are described in the enum `Parseabl
 
 ### `@OneOfChars`
 
-Test if the annotated `Character` is present in the supplied array. 
+Checks if the `Character` is contained in a given array (`char[]`) of values.
+
+#### Example
+
+In the following example we test if the field `aOrBOrC` is either `'a'`, `'b'` or `'c'`.
+
+```java
+@Data
+class {
+    @OneOfChars({'a', 'b', 'c'})
+    private Character aOrBOrC;
+}
 
 ### `@OneOfDoubles`
 
@@ -362,9 +375,20 @@ Test if the annotated `Integer` is present in the supplied array.
 
 Test if the annotated `Long` is present in the supplied array.
 
-### `@OneOfStrs`
+### `@OneOfStrings`
 
-Test if the annotated `String` is present in the supplied array.
+Checks if the String is contained in a given array (`String[]`) of values.
+
+#### Example
+
+In the following example we check if the value returned by the `getValue()` getter is either `"A"`, `"B"` or `"C"`.
+
+```java
+class Test {
+    @OneOfStrings({ "A" , "B", "C"})
+    private String getValue() { return /***/ }
+}
+```
 
 ### `@StartsWith`
 
