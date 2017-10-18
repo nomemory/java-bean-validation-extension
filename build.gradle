@@ -12,8 +12,8 @@ plugins {
     id "com.jfrog.bintray" version "1.7.3"
 }
 
-group 'net.andreinc.jvbe'
-version '0.0.1'
+group 'net.andreinc'
+version '0.0.2'
 
 apply plugin: 'java'
 
