@@ -1,0 +1,39 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = '0.0.1'
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = 'maven'
+        name = 'jvbe'
+        desc = 'JVBE (aka Java Bean Validation Extension) is a small utils library that extends the Java Bean Validation Specification with additional @Annotations. '
+        websiteUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
+        vcsUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
+        licenses = ["Apache-2.0"]
+        publish = true
+        publicDownloadNumbers = true
+    }
+}

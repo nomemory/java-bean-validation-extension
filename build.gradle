@@ -1,5 +1,19 @@
-group 'net.andreinc.jabvee'
-version '1.0-SNAPSHOT'
+buildscript() {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+    }
+}
+
+plugins {
+    id "com.github.johnrengelman.shadow" version "1.2.4"
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+group 'net.andreinc.jvbe'
+version '0.0.1'
 
 apply plugin: 'java'
 
@@ -29,3 +43,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-alpha2'
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
+}
+
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
