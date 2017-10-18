@@ -22,6 +22,7 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
 | [`@StartsWith`](#startswith) | `String` | Checks if the String starts with the specified prefix(es). |
+| [`@UpperCase`](#uppercase) | `String` | Checks if the String contains only uppercase letters. |
 | ...more | ...more | ...more to be documented. |
 
 *Note:* 
@@ -398,3 +399,21 @@ class Starters {
     private List< @StartsWith("1", "2") String> starts;
 } 
 ```
+
+### `@UpperCase`
+
+Checks if the String contains only uppercase letters.
+
+Behavior:
+
+| Value | Result |
+| --- | --- |
+| `null` | :x: Fails |
+| `""` | :x: Fails |
+| `" "` | :x: Fails |
+| `"ABC"` |  :white_check_mark: Passes |
+| `"aBC"` | :x: Fails |
+| `"A C"` | :x: Fails |
+| `"1AB"` | :x: Fails |
+| `"A-C"` | :x: Fails |
+
