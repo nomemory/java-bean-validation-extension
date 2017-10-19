@@ -61,7 +61,7 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
-| [`@NotInstanceOf`](#noinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
+| [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@OneOfChars`](#oneofchars) | `Character` | Checks if the Character is contained in a given array (`char[]`) of values. |
 | [`@OneOfDoubles`](#oneofdoubles) | `Double` | Check if the Double is contained in a given array (`double[]`) of values. |
