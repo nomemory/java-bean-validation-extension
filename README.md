@@ -25,6 +25,7 @@ If you are using maven:
         <url>https://jcenter.bintray.com/</url>
     </repository>
 </repositories>
+
 <dependency>
   <groupId>net.andreinc.jvbe</groupId>
   <artifactId>jvbe</artifactId>
