@@ -1,7 +1,8 @@
 # java-bean-validation-extension (JVBE)
 
-*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation, and should be used togheter with one (eg.: [hibernate-validator](http://hibernate.org/validator/)).
+*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. 
 
+If you are not familiar with JSR-380 (or the Java Bean Validation Specification) please follow [this nice tutorial](http://www.baeldung.com/javax-validation) first.
 
 ## Installing the library
 
@@ -31,7 +32,7 @@ If you are using maven:
 </dependency>
 ```
 
-**Important note:**
+*Important note(s):*
 
 In the runtime environment you will an existing JSR-380 implementation in the classpath. Spring Boot started web comes by default with [Hibernate Validator](http://hibernate.org/validator/).
 
