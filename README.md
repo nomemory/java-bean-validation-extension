@@ -2,7 +2,45 @@
 
 *JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. This is not a JSR-380 implementation, and should be used togheter with one (eg.: [hibernate-validator](http://hibernate.org/validator/)).
 
-Check out the `build.gradle` to better understand the requirements. Integrating the repo with Maven Central and JCenter is still an work in progress. 
+
+## Installing the library
+
+The library is avaiable in `jcenter()`.
+
+If you are using gradle:
+
+```groovy
+repositories {
+    jcenter()
+}
+compile 'net.andreinc.jvbe:jvbe:0.0.3'
+```
+
+If you are using maven:
+```xml
+<repositories>
+    <repository>
+        <id>jcenter</id>
+        <url>https://jcenter.bintray.com/</url>
+    </repository>
+</repositories>
+<dependency>
+  <groupId>net.andreinc.jvbe</groupId>
+  <artifactId>jvbe</artifactId>
+  <version>0.0.3</version>
+</dependency>
+```
+
+**Important note:**
+
+In the runtime environment you will an existing JSR-380 implementation in the classpath. Spring Boot started web comes by default with [Hibernate Validator](http://hibernate.org/validator/).
+
+If you are using the library in another environment that doesn't provide a JSR-380 implementation you will need to add the following as dependencies:
+
+```groovy
+compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Final'
+compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
+```
 
 ## Additional supported annotations
 
@@ -16,16 +54,21 @@ Check out the `build.gradle` to better understand the requirements. Integrating 
 | [`@Blank`](#blank) | `String` | Checks if the String is empty `""`, null or whitespace(s) `"  "` only. |
 | [`@CC`](#cc) | `String` | Checks if the String is a valid credit card number. |
 | [`@EndsWith`](#endswith) | `String` | Checks if the Strings ends with a specified suffix(es). |
+| [`@InstanceOf`](#instanceof) | `Object` | Check if the Object is an `instanceof` of (at least one of) the supplied value(s). |
 | [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
+| [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
+| [`@NotInstanceOf`](#noinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@OneOfChars`](#oneofchars) | `Character` | Checks if the Character is contained in a given array (`char[]`) of values. |
+| [`@OneOfDoubles`](#oneofdoubles) | `Double` | Check if the Double is contained in a given array (`double[]`) of values. |
+| [`@OneOfIntegers`](#oneofintegers) | `Integer` | Check if the Integer is contained in a given array (`int[]`) of values. |
+| [`@OneOfLongs`](#oneoflongs) | `Long` | Check if the Long is contained in a given array (`long[]`) of values. |
 | [`@OneOfStrings`](#oneofstrings) | `String` | Checks if the String is contained in a given array (`String[]`) of values. |
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
 | [`@StartsWith`](#startswith) | `String` | Checks if the String starts with the specified prefix(es). |
 | [`@UpperCase`](#uppercase) | `String` | Checks if the String contains only uppercase letters. |
-| ...more | ...more | ...more to be documented. |
 
 *Note:* 
 
@@ -366,15 +409,39 @@ class {
 
 ### `@OneOfDoubles`
 
-Test if the annotated `Double` is present in the supplied array.
+Check if the Double is contained in a given array (`double[]`) of values.
 
-### `@OneOfInts`
+#### Example
 
-Test if the annotated `Integer` is present in the supplied array.
+In the following example we test if the field `value` is either `1.0` or `2.0`.
+ 
+```java
+@Data
+class {
+    @OneOfDoubles({1.0, 2.0})
+    private Double value;
+}
+```
+
+### `@OneOfIntegers`
+
+Check if the Integer is contained in a given array (`int[]`) of values.
+
+#### Example
+
+In the following example we test if the field `value` is either `1` or `2`.
+
+```java
+@Data
+class {
+    @OneOfIntegers({1, 2})
+    private Integer value;
+}
+```
 
 ### `@OneOfLongs`
 
-Test if the annotated `Long` is present in the supplied array.
+Check if the Long is contained in a given array (`long[]`) of values.
 
 ### `@OneOfStrings`
 
