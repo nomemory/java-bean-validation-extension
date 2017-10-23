@@ -59,6 +59,7 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 | [`@InstanceOf`](#instanceof) | `Object` | Check if the Object is an `instanceof` of (at least one of) the supplied value(s). |
 | [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
+| [`@IsDate`](#isdate) | `String` | Check if the String is in a date format. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
 | [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
@@ -293,6 +294,20 @@ This is implemented using `InetAddressValidator.class` from [Apache Common Valid
 Checks if the given string is a valid IPv6 address.
 
 This is implemented using `InetAddressValidator.class` from [Apache Common Validator](https://commons.apache.org/proper/commons-validator/).
+
+### `@IsDate`
+
+Checks if the given string is formatted as a date.
+
+#### Example
+
+```java
+@Data
+class IsDateBean {
+    @IsDate("yyyy-MM-dd")
+    private String isDate = "2018-12-01"; // Passes
+}
+```
 
 ### `@JsAssert` 
 
