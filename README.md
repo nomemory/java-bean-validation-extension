@@ -14,7 +14,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-compile 'net.andreinc.jvbe:jvbe:0.0.4'
+compile 'net.andreinc.jvbe:jvbe:0.0.5'
 ```
 
 If you are using maven:
@@ -29,7 +29,7 @@ If you are using maven:
 <dependency>
   <groupId>net.andreinc.jvbe</groupId>
   <artifactId>jvbe</artifactId>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
 </dependency>
 ```
 
