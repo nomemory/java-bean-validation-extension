@@ -8,6 +8,8 @@ import javax.validation.ConstraintValidatorContext;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 public class IsDateValidator implements ConstraintValidator<IsDate, String> {
 
     private IsDate annotation;
@@ -19,6 +21,11 @@ public class IsDateValidator implements ConstraintValidator<IsDate, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
+
+        if (isEmpty(value)) {
+            return false;
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat(annotation.value());
         try {
             sdf.parse(value);
