@@ -2,7 +2,7 @@
 //
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
-//import net.andreinc.jvbe.misc.InstanceOf;
+//import net.andreinc.jbve.misc.InstanceOf;
 //
 //import javax.validation.ConstraintViolation;
 //import javax.validation.Validation;

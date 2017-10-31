@@ -3,7 +3,7 @@
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
 //import lombok.NoArgsConstructor;
-//import net.andreinc.jvbe.exp.JsAssert;
+//import net.andreinc.jbve.exp.JsAssert;
 //
 //import javax.validation.ConstraintViolation;
 //import javax.validation.Validation;

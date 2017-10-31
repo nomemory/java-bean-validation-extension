@@ -1,6 +1,6 @@
-# java-bean-validation-extension (JVBE)
+# java-bean-validation-extension (JBVE)
 
-*JVBE* (aka Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. 
+*JBVE* (Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. 
 
 If you are not familiar with JSR-380 (or the Java Bean Validation Specification) please follow [this nice tutorial](http://www.baeldung.com/javax-validation) first.
 
@@ -14,7 +14,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-compile 'net.andreinc.jvbe:jvbe:0.0.5'
+compile jbve
 ```
 
 If you are using maven:
@@ -27,8 +27,8 @@ If you are using maven:
 </repositories>
 
 <dependency>
-  <groupId>net.andreinc.jvbe</groupId>
-  <artifactId>jvbe</artifactId>
+  <groupId>net.andreinc.jbve</groupId>
+  <artifactId>jbve</artifactId>
   <version>0.0.5</version>
 </dependency>
 ```

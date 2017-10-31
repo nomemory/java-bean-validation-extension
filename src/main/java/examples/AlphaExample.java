@@ -1,7 +1,7 @@
 //package examples;
 //
 //import lombok.Data;
-//import net.andreinc.jvbe.str.Alpha;
+//import net.andreinc.jbve.str.Alpha;
 //
 //public class AlphaExample {
 //}

@@ -28,8 +28,8 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = 'maven'
-        name = 'jvbe'
-        desc = 'JVBE (aka Java Bean Validation Extension) is a small utils library that extends the Java Bean Validation Specification with additional @Annotations. '
+        name = 'jbve'
+        desc = 'JBVE (aka Java Bean Validation Extension) is a small utils library that extends the Java Bean Validation Specification with additional @Annotations. '
         websiteUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
         vcsUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
         licenses = ["Apache-2.0"]
