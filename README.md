@@ -14,7 +14,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-------
+compile 'net.andreinc.jbvext:jbvext:0.0.6'
 ```
 
 If you are using maven:
