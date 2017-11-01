@@ -1,16 +1,16 @@
 apply plugin: 'maven'
 
-group = 'net.andreinc.jbve'
+group = 'net.andreinc.jbvext'
 
 install {
     repositories.mavenInstaller {
         pom {
             project {
                 packaging 'jar'
-                groupId 'net.andreinc.jbve'
-                artifactId 'jbve'
+                groupId 'net.andreinc.jbvext'
+                artifactId 'jbvext'
 
-                name 'jbve' // YOUR LIBRARY NAME
+                name 'jbvext' // YOUR LIBRARY NAME
                 description 'JBVE (aka Java Bean Validation Extension) is a small utils library that extends the Java Bean Validation Specification with additional @Annotations.'
                 url 'https://github.com/nomemory/java-bean-validation-extension' // YOUR SITE
 

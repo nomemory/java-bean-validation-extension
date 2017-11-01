@@ -28,7 +28,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = 'maven'
-        name = 'jbve'
+        name = 'jbvext'
         desc = 'JBVE (aka Java Bean Validation Extension) is a small utils library that extends the Java Bean Validation Specification with additional @Annotations. '
         websiteUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
         vcsUrl = 'https://github.com/nomemory/java-bean-validation-extension.git'
