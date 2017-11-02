@@ -1,8 +1,12 @@
-# java-bean-validation-extension (JBVE)
+# java-bean-validation-extension (JBVExt)
 
 *JBVE* (Java Bean Validation Extension) is a small utils library that extends the [Java Bean Validation Specification](http://beanvalidation.org) with additional @Annotations. 
 
 If you are not familiar with JSR-380 (or the Java Bean Validation Specification) please follow [this nice tutorial](http://www.baeldung.com/javax-validation) first.
+
+If you want to see *JVBExt* at work please:
+- read this [blog article](http://andreinc.net/2017/10/02/writing-an-unified-validation-mechanism-for-rest-apis-using-spring-boot-and-jsr-380/);
+- check out this [repository](https://github.com/nomemory/spring-boot-jbvext-example).
 
 ## Installing the library
 
