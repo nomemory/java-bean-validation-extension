@@ -48,6 +48,12 @@ compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Fin
 compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 ```
 
+## Who is using jbvext ?
+
+**Java Bean Validation Extension** was downloaded +/-450 times since October, 2017.
+
+If you are using **jbvext** in your cool projects please send me a note so I can include you in this list.
+
 ## Additional supported annotations
 
 | @Annotation | Supported Types | Description |
