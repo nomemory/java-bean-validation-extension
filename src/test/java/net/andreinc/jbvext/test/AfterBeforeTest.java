@@ -32,6 +32,6 @@ public class AfterBeforeTest {
 @Data
 class AfterBeforeBean {
     @After(value = "2018-01-01", format = "yyyy-MM-dd")
-    @Before(value = "2100-01-01", format = "yyyy-MM-dd")
+    @Before(value = "3000-01-01", format = "yyyy-MM-dd")
     private Date isAfter = new Date(1522399999911L); // Passes // Date = 2018-03-30
 }
