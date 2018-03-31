@@ -41,10 +41,16 @@ public class PasswordValidator implements ConstraintValidator<Password, String> 
 
         for (int i = 0; i < value.length(); ++i) {
             char chr = value.charAt(i);
+
             if (isUpperCase(chr)) upperCase++;
+
             else if (isLowerCase(chr)) lowerCase++;
+
             else if (SPECIAL_CHARS.contains(chr)) specialChar++;
+
             else if (isDigit(chr)) digits++;
+
+            else if (chr == ' ' && annotation.allowSpace()) return false;
         }
 
         if (annotation.containsDigits() && digits <= 0) return false;

@@ -25,6 +25,8 @@ public @interface Password {
 
     boolean containsDigits() default true;
 
+    boolean allowSpace() default false;
+
     int minSize() default 8;
 
     int maxSize() default 32;
