@@ -18,7 +18,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-compile 'net.andreinc.jbvext:jbvext:0.0.6'
+compile 'net.andreinc.jbvext:jbvext:0.0.7'
 ```
 
 If you are using maven:
@@ -33,7 +33,7 @@ If you are using maven:
 <dependency>
   <groupId>net.andreinc.jbvext</groupId>
   <artifactId>jbve</artifactId>
-  <version>0.0.6</version>
+  <version>0.0.7</version>
 </dependency>
 ```
 
