@@ -48,7 +48,7 @@ compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.0.2.Fin
 compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 ```
 
-## Who using jbvext ?
+## Who is using jbvext ?
 
 **Java Bean Validation Extension** was downloaded +/-450 times since October, 2017.
 
