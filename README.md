@@ -64,6 +64,8 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 | [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@IsDate`](#isdate) | `String` | Check if the String is in a date format. |
+| [`@Before`](#before) | `Date` | Check if the Date is before the given date value, with date format as parameter. |
+| [`@After`](#after) | `Date` | Check if the Date is after the given date value, with date format as parameter. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
 | [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
@@ -76,6 +78,7 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
 | [`@StartsWith`](#startswith) | `String` | Checks if the String starts with the specified prefix(es). |
 | [`@UpperCase`](#uppercase) | `String` | Checks if the String contains only uppercase letters. |
+
 
 *Note:* 
 
@@ -312,6 +315,39 @@ class IsDateBean {
     private String isDate = "2018-12-01"; // Passes
 }
 ```
+
+### `@Before`
+
+Check if the Date is before the given date value. 
+
+The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
+
+#### Example
+
+```java
+@Data
+class BeforeBean {
+    @Before(value = "2018-12-01", format = "yyyy-MM-dd")
+    private Date isBefore = new Date(1522399999911L); // Passes // Date = 2018-03-30
+}
+```
+
+### `@After`
+
+Check if the Date is after the given date value. 
+
+The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
+
+#### Example
+
+```java
+@Data
+class AfterBean {
+    @After(value = "2018-01-01", format = "yyyy-MM-dd")
+    private Date isAfter = new Date(1522399999911L); // Passes // Date = 2018-03-30
+}
+```
+
 
 ### `@JsAssert` 
 
