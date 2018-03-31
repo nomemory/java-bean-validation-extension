@@ -85,6 +85,22 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 *All the examples are using [project's lombok](https://projectlombok.org) annotations like `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`, etc.*
 *Those annotations are used make the examples more compact, but their use is optional.*
 
+### `@After`
+
+Check if the Date is after the given date value. 
+
+The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
+
+#### Example
+
+```java
+@Data
+class AfterBean {
+    @After(value = "2018-01-01", format = "yyyy-MM-dd")
+    private Date isAfter = new Date(1522399999911L); // Passes // Date = 2018-03-30
+}
+```
+
 ### `@Alpha`
 
 Check if the String contains only unicode letters. 
@@ -175,6 +191,23 @@ Behavior:
 | `"\u0020"` | :white_check_mark: Passes |
 | `"\u007e"` | :x: Fails |
 | `"G\u00fclc\u00fc"` | :x: Fails |
+
+
+### `@Before`
+
+Check if the Date is before the given date value. 
+
+The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
+
+#### Example
+
+```java
+@Data
+class BeforeBean {
+    @Before(value = "2018-12-01", format = "yyyy-MM-dd")
+    private Date isBefore = new Date(1522399999911L); // Passes // Date = 2018-03-30
+}
+```
 
 ### `@Blank`
 
@@ -315,39 +348,6 @@ class IsDateBean {
     private String isDate = "2018-12-01"; // Passes
 }
 ```
-
-### `@Before`
-
-Check if the Date is before the given date value. 
-
-The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
-
-#### Example
-
-```java
-@Data
-class BeforeBean {
-    @Before(value = "2018-12-01", format = "yyyy-MM-dd")
-    private Date isBefore = new Date(1522399999911L); // Passes // Date = 2018-03-30
-}
-```
-
-### `@After`
-
-Check if the Date is after the given date value. 
-
-The annotation supports a second property format that by default is "yyyy-MM-dd'T'HH:mm:ss.SSSZ".
-
-#### Example
-
-```java
-@Data
-class AfterBean {
-    @After(value = "2018-01-01", format = "yyyy-MM-dd")
-    private Date isAfter = new Date(1522399999911L); // Passes // Date = 2018-03-30
-}
-```
-
 
 ### `@JsAssert` 
 
