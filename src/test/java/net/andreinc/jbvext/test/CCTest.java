@@ -2,9 +2,13 @@ package net.andreinc.jbvext.test;
 
 import lombok.Data;
 import net.andreinc.jbvext.annotations.str.CC;
+import org.junit.Assert;
+import org.junit.Test;
 
+import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import java.util.Set;
 
 import static net.andreinc.jbvext.annotations.str.CreditCardType.AMEX;
 import static net.andreinc.jbvext.annotations.str.CreditCardType.VISA;
@@ -16,6 +20,16 @@ public class CCTest {
 
     private Validator validator =
             Validation.buildDefaultValidatorFactory().getValidator();
+
+    @Test
+    public void testFields() {
+        CCBeanFields blankBeanFields = new CCBeanFields();
+
+        Set<ConstraintViolation<CCBeanFields>> violations =
+                validator.validate(blankBeanFields);
+
+        Assert.assertEquals(0, violations.size());
+    }
 }
 
 
