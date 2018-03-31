@@ -52,20 +52,20 @@ compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b08'
 
 | @Annotation | Supported Types | Description |
 | --- | --- | --- |
+| [`@After`](#after) | `Date` | Check if the Date is after the given date value, with date format as parameter. |
 | [`@Alpha`](#alpha) | `String` | Checks if the String contains only unicode letters. |
 | [`@Alphanumeric`](#alphanumeric) | `String` | Checks if the String contains unly unicode letters or digits |
 | [`@AlphanumericSpace`](#alphanumericspace) | `String` | Checks if the String contains only unicode letters, digits, empty strings or spaces. |
 | [`@AlphaSpace`](#alphaspace) | `String` | Checks if the String contains only Unicode letters and space `" "`. |
 | [`@AsciiPrintable`](#asciiprintable) | `String` | Checks if the String contains only ASCII printable characters. |
 | [`@Blank`](#blank) | `String` | Checks if the String is empty `""`, null or whitespace(s) `"  "` only. |
+| [`@Before`](#before) | `Date` | Check if the Date is before the given date value, with date format as parameter. |
 | [`@CC`](#cc) | `String` | Checks if the String is a valid credit card number. |
 | [`@EndsWith`](#endswith) | `String` | Checks if the Strings ends with a specified suffix(es). |
 | [`@InstanceOf`](#instanceof) | `Object` | Check if the Object is an `instanceof` of (at least one of) the supplied value(s). |
 | [`@IPv4`](#ipv4) | `String` | Checks if the String is a valid IPv4 address. |
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@IsDate`](#isdate) | `String` | Check if the String is in a date format. |
-| [`@Before`](#before) | `Date` | Check if the Date is before the given date value, with date format as parameter. |
-| [`@After`](#after) | `Date` | Check if the Date is after the given date value, with date format as parameter. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
 | [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
