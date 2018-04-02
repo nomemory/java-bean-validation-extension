@@ -1,6 +1,6 @@
 package net.andreinc.jbvext.annotations.str;
 
-import net.andreinc.jbvext.annotations.str.validators.ParseableValidator;
+import net.andreinc.jbvext.annotations.str.validators.PasswordValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,7 +12,7 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
-@Constraint(validatedBy = ParseableValidator.class)
+@Constraint(validatedBy = PasswordValidator.class)
 @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 public @interface Password {
@@ -31,7 +31,7 @@ public @interface Password {
 
     int maxSize() default 32;
 
-    String message() default "{string.parseable}";
+    String message() default "{string.password}";
 
     Class<?>[] groups() default {};
 
