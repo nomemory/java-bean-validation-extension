@@ -78,5 +78,5 @@ class PassBean3 {
 @NoArgsConstructor
 class PassBean4 {
     @Password
-    private String goodPass = "Ab1@_abcde";
+    private String goodPass = "Ab1_abcde";
 }

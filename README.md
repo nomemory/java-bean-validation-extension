@@ -18,7 +18,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-compile 'net.andreinc.jbvext:jbvext:0.0.8'
+compile 'net.andreinc.jbvext:jbvext:0.0.9'
 ```
 
 If you are using maven:
@@ -33,7 +33,7 @@ If you are using maven:
 <dependency>
   <groupId>net.andreinc.jbvext</groupId>
   <artifactId>jbve</artifactId>
-  <version>0.0.8</version>
+  <version>0.0.9</version>
 </dependency>
 ```
 
@@ -82,6 +82,7 @@ If you are using **jbvext** in your cool projects please send me a note so I can
 | [`@OneOfLongs`](#oneoflongs) | `Long` | Check if the Long is contained in a given array (`long[]`) of values. |
 | [`@OneOfStrings`](#oneofstrings) | `String` | Checks if the String is contained in a given array (`String[]`) of values. |
 | [`@Parseable`](#parseable) | `String` | Checks if the String can be parsed to a number (`Short`, `Integer`, `Long`, `Double`, etc.). |
+| [`@Password`](#password) | `String` | Checks if the String is a valid password. |
 | [`@StartsWith`](#startswith) | `String` | Checks if the String starts with the specified prefix(es). |
 | [`@UpperCase`](#uppercase) | `String` | Checks if the String contains only uppercase letters. |
 
@@ -453,6 +454,19 @@ All the possible parsing strategies accepted are described in the enum `Parseabl
 - `TO_LONG`
 - `TO_FLOAT`
 - `TO_DOUBLE`
+
+### `@Password`
+
+Check if a `String` is a valid password - matching a set of constraints.
+
+
+- `containsUpperCase() default true` - Needs to contain at least an Uppercase letter;
+- `boolean containsLowerCase() default true` - Needs to contain at least a Lowercase letter;
+- `boolean containsSpecialChar() default true` - Needs to contain at least one special character;
+- `boolean containsDigits() default true` - Needs to contain at least one digit;
+- `boolean allowSpace() default false` - Password can contain spaces;
+- `int minSize() default 8` - The min size of the password;
+- `int maxSize() default 32` - The maximum size of the password;
 
 ### `@OneOfChars`
 
