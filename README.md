@@ -18,7 +18,7 @@ If you are using gradle:
 repositories {
     jcenter()
 }
-compile 'net.andreinc.jbvext:jbvext:0.0.9'
+compile 'net.andreinc.jbvext:jbvext:0.0.10'
 ```
 
 If you are using maven:
@@ -33,7 +33,7 @@ If you are using maven:
 <dependency>
   <groupId>net.andreinc.jbvext</groupId>
   <artifactId>jbve</artifactId>
-  <version>0.0.9</version>
+  <version>0.0.10</version>
 </dependency>
 ```
 
@@ -74,6 +74,8 @@ If you are using **jbvext** in your cool projects please send me a note so I can
 | [`@IsDate`](#isdate) | `String` | Check if the String is in a date format. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
 | [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
+| [`@MinDigits`](#mindigits) | `Double` | Checks whether the annotated value is higher than or equal to the specified minimum. |
+| [`@MaxDigits`](#maxdigits) | `Double` | Checks whether the annotated value is less than or equal to the specified maximum. |
 | [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
 | [`@Numeric`](#numeric) | `String` | Checks if the String contains only unicode digits. *Note: A decimal point is not considered a digit and the validation fails. Use `@Parseable` instead for more advanced validations*. |
 | [`@OneOfChars`](#oneofchars) | `Character` | Checks if the Character is contained in a given array (`char[]`) of values. |
@@ -403,6 +405,55 @@ Behavior:
 | `"ab c"` | :x: Fails |
 | `"ab1c"` | :x: Fails |
 | `"ab-c"` | :x: Fails |
+
+### `@MinDigits`
+
+Checks whether the annotated value is higher than or equal to the specified minimum.
+
+#### Example
+
+```java
+@Data
+class MinDigitsDoubleBean {
+    @MinDigits(value = "10.5")
+    private Double isOk = new Double(11.0); // Passes
+
+    @MinDigits(value = "10.5")
+    private Double isKo = new Double(10.0); // Do not Pass
+}
+
+```
+
+####Supported data types
+
+`Double`
+
+TODO Add support for more types
+
+
+### `@MaxDigits`
+
+Checks whether the annotated value is less than or equal to the specified maximum.
+
+#### Example
+
+```java
+@Data
+class MaxDigitsDoubleBean {
+    @MaxDigits(value = "10.5")
+    private Double isKo = new Double(11.0); // Do not Pass
+
+    @MaxDigits(value = "10.5")
+    private Double isOk = new Double(10.0); // Passes
+}
+
+```
+
+####Supported data types
+
+`Double`
+
+TODO Add support for more types
 
 ### `@NotInstanceOf`
 

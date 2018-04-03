@@ -1,4 +1,9 @@
-Version 0.0.9
+Version 0.0.10
+--------------
+- Added a new annotation: @MinDigits : Checks whether the annotated value is higher than or equal to the specified minimum
+- Added a new annotation: @MaxDigits : Checks whether the annotated value is less than or equal to the specified maximum
+
+Version 0.0.10
 --------------
 - Added a new annotation: @Password
 
