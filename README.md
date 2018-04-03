@@ -424,7 +424,7 @@ class MinDigitsDoubleBean {
 
 ```
 
-####Supported data types
+#### Supported data types
 
 `Double`
 
@@ -449,7 +449,7 @@ class MaxDigitsDoubleBean {
 
 ```
 
-####Supported data types
+#### Supported data types
 
 `Double`
 
