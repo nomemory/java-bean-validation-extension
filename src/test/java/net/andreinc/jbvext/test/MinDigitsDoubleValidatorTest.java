@@ -1,4 +1,4 @@
-package net.andreinc.jbvext.annotations.digits.validator;
+package net.andreinc.jbvext.test;
 
 import lombok.Data;
 import net.andreinc.jbvext.annotations.digits.MinDigits;

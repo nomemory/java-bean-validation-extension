@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+@Deprecated
 @Repeatable(JsAsserts.class)
 @Documented
 @Constraint(validatedBy = JsAssertValidator.class)

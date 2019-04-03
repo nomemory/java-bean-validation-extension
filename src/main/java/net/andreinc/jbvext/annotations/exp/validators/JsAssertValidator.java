@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import net.andreinc.jbvext.annotations.exp.JsAssert;
 import net.andreinc.jbvext.utils.TimeActionResponse;
+import org.graalvm.polyglot.Context;
+import org.graalvm.polyglot.Engine;
+import org.graalvm.polyglot.Source;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,17 +27,20 @@ public class JsAssertValidator implements ConstraintValidator<JsAssert, Object> 
     private final Logger LOG = LoggerFactory.getLogger(JsAssertValidator.class.getName());
 
     // Acts as a caching mechanism to compile every expression found in the annotation
-    protected static Map<String, CompiledScript> cachedExpressions = new HashMap<>();
+    protected static Map<String, Source> sources = new HashMap<>();
 
-    protected ScriptEngine engine;
-    protected ScriptContext currentContext;
+    protected Engine engine;
+    protected Context context;
     protected JsAssert annotation;
 
     @Override
     public void initialize(JsAssert constraintAnnotation) {
-        this.engine = new ScriptEngineManager().getEngineByName("nashorn");
-        this.currentContext = engine.getContext();
+        this.engine = Engine.create();
         this.annotation = constraintAnnotation;
+        this.context = Context.newBuilder()
+                                .allowAllAccess(true)
+                                .engine(this.engine)
+                              .build();
     }
 
     @Override
@@ -43,45 +49,16 @@ public class JsAssertValidator implements ConstraintValidator<JsAssert, Object> 
         String attributeName = annotation.attributeName();
         String expression = annotation.value();
 
-        CompiledScript expCompiled = cachedExpressions
-                                        .get(expression);
+        Source source = sources.get(expression);
 
-        if (null == expCompiled) {
-            // Expression is not compiled, it's evaluated for the first time
-            TimeActionResponse<CompiledScript> ret = recordTimeAndDo(compile(expression));
-            LOG.info("Script expression \"{}\" compiled in {} ms.", expression, ret.getTime());
-            expCompiled = ret.getResponse();
-            cachedExpressions.put(expression, expCompiled);
+        if (null == source) {
+            source = Source.create("js", expression);
+            sources.put(expression, source);
         }
 
-        // The value is bind to engine context with the name 'value'
-        currentContext
-                .getBindings(ENGINE_SCOPE)
-                .put(attributeName, value);
+        context.getBindings("js")
+               .putMember(attributeName, value);
 
-        try {
-            // Evaluating the boolean expression included in the annotation.
-            // Expression is validating the value.
-            Object result = expCompiled.eval(currentContext);
-
-            if (result instanceof Boolean) {
-                return (Boolean) result;
-            }
-
-            throw new IllegalArgumentException("Expression: ```" + expression + "``` is not a boolean expression.");
-
-        } catch (ScriptException e) {
-            throw new IllegalArgumentException("Expression: ```" + expression + "``` failed to eval.", e);
-        }
-    }
-
-    public Supplier<CompiledScript> compile(String expression) {
-        return () -> {
-            try {
-                return ((Compilable) engine).compile(expression);
-            } catch (ScriptException e) {
-                throw new IllegalArgumentException("Expression: ```" + expression + "``` is invalid. Pre-compilation failed.", e);
-            }
-        };
+        return context.eval(source).asBoolean();
     }
 }
