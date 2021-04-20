@@ -10,9 +10,17 @@ If you want to see *JVBExt* at work please:
 
 ## Installing the library
 
-The library is avaiable in `jcenter()`.
+For versions (`>=0.0.12`):
 
-If you are using gradle:
+```xml
+<dependency>
+  <groupId>net.andreinc</groupId>
+  <artifactId>jbve</artifactId>
+  <version>0.0.12</version>
+</dependency>
+```
+
+For versions (`<0.0.12`):
 
 ```groovy
 repositories {

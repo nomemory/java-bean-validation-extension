@@ -1,25 +1,17 @@
-buildscript() {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-    }
-}
-
 plugins {
-    id "com.jfrog.bintray" version "1.7.3"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
 }
 
 apply plugin: 'java'
-apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 group 'net.andreinc'
-version '0.0.11'
+version '0.0.12'
+archivesBaseName = "jbve"
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 tasks.withType(JavaCompile) {
@@ -50,5 +42,64 @@ dependencies {
     testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.8.0-alpha2'
 }
 
-apply from: 'install.gradle'
-apply from: 'bintray.gradle'
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'Java Bean Validation Extension(s)'
+                packaging 'jar'
+                description "Java Bean Validation Extension(s)"
+                url 'https://github.com/nomemory/java-bean-validation-extension'
+
+                scm {
+                    connection 'https://github.com/nomemory/java-bean-validation-extension'
+                    developerConnection 'https://github.com/nomemory/java-bean-validation-extension'
+                    url 'https://github.com/nomemory/java-bean-validation-extension'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'nomemory'
+                        name 'nomemory'
+                        email 'gnomemory@yahoo.com'
+                    }
+                }
+            }
+        }
+    }
+}
