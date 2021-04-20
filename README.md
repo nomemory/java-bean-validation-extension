@@ -19,32 +19,6 @@ For versions (`>=0.0.12`):
   <version>0.0.12</version>
 </dependency>
 ```
-
-For versions (`<0.0.12`):
-
-```groovy
-repositories {
-    jcenter()
-}
-compile 'net.andreinc.jbvext:jbvext:0.0.11'
-```
-
-If you are using maven:
-```xml
-<repositories>
-    <repository>
-        <id>jcenter</id>
-        <url>https://jcenter.bintray.com/</url>
-    </repository>
-</repositories>
-
-<dependency>
-  <groupId>net.andreinc.jbvext</groupId>
-  <artifactId>jbvext</artifactId>
-  <version>0.0.11</version>
-</dependency>
-```
-
 *Important note(s):*
 
 In the runtime environment you will an existing JSR-380 implementation in the classpath. Spring Boot started web comes by default with [Hibernate Validator](http://hibernate.org/validator/).
