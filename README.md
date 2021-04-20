@@ -81,7 +81,6 @@ If you are using **jbvext** in your cool projects please send me a note so I can
 | [`@IPv6`](#ipv6) | `String` | Checks if the String is a valid IPv6 address. |
 | [`@IsDate`](#isdate) | `String` | Check if the String is in a date format. |
 | [`@LowerCase`](#lowercase) | `String` | Checks if the String contains only lowercase letters. |
-| [`@JsAssert`](#jsassert) | `Object`, Class Level | Allows the developer to define a validating expression in Java Script (using the `nashorn` implementation). |
 | [`@MinDigits`](#mindigits) | `Double` | Checks whether the annotated value is higher than or equal to the specified minimum. |
 | [`@MaxDigits`](#maxdigits) | `Double` | Checks whether the annotated value is less than or equal to the specified maximum. |
 | [`@NotInstanceOf`](#notinstanceof) | `Object` | Check if the is not an `instanceof` of (all the) the supplied value(s). |  
@@ -365,37 +364,6 @@ class IsDateBean {
     private String isDate = "2018-12-01"; // Passes
 }
 ```
-
-### `@JsAssert` 
-
-Tests if a Java Script expression is validating the target (class level, field level, method level).
-
-*Note: The implementation uses nashorn that ships by default with Java. After the first run, all the expressions are pre-compiled and cached for improved performance.*
-
-#### Example(s)
-
-```java
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-/* Validation at class level, tests if prop1 length is bigger than 4 
-and prop2 length is smaller or equal with 3 */
-@JsAssert("_.prop1.length > 4 && _.prop2.length <= 3")
-public class Bean01 {
-
-    /** Tests if the value starts with 'A' */
-    @JsAssert("_[0] === 'A'")
-    private String prop1;
-    private String prop2;
-}
-```
-
-The above code validates for `new Bean01("Abcde", "abc")`, but is not validating for `new Bean01("Bbcde", "abc")` because `prop1`  starts with `'B'` instead of `'A'`.
-
-*Note: If you prefer other variable name for the bind value (by default it's `'_'` you can use the annotation property called `'attributeName'`)*
-
-*Note: Multiple `@JsAssert` annotations are supported on the same field, method or class.*
-
 
 ### `@LowerCase`
 
